@@ -6,3 +6,9 @@ let mut buf = Vec::with_capacity(self.len().checked_mul(n).expect("capacity over
 
 ===link===
 https://github.com/rust-lang/rust/pull/54397
+
+===security===
+yes
+
+===unsafe nested===
+yes
