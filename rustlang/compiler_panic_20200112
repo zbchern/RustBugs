@@ -1,0 +1,15 @@
+===buggy context===
+match
+
+===buggy code===
+Def(_, generic_args) => generic_args.iter().filter_map(|arg| match arg {hir::GenericArg::Type(ty) => Some(ty),_ => None,}).any(is_suggestable_infer_ty),
+
+===bug fix===
+Def(_, generic_args) => are_suggestable_generic_args(generic_args),
+...
+
+===link===
+https://github.com/rust-lang/rust/issues/68162
+
+===security===
+no
