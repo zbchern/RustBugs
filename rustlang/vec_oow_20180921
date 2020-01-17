@@ -1,0 +1,8 @@
+=buggy code=
+let mut buf = Vec::with_capacity(self.len() * n);
+
+=bug fix=
+let mut buf = Vec::with_capacity(self.len().checked_mul(n).expect("capacity overflow"));
+
+=link=
+https://github.com/rust-lang/rust/pull/54397
