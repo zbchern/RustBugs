@@ -8,6 +8,7 @@ DotEq => unreachable!(),
 DotEq => joint!('.', Eq),
 
 ===ref===
+https://github.com/rust-lang/rust/pull/48036
 https://github.com/rust-lang/rust/issues/47950
 
 ===security===
