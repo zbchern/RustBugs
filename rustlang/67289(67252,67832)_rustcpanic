@@ -1,0 +1,8 @@
+===bug context===
+match
+  
+===buggy code===
+_ => bug!("no name for {}", self.node_to_string(id))
+
+===bug fix===
+_ => return None,
