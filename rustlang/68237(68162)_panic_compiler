@@ -7,10 +7,3 @@ Def(_, generic_args) => generic_args.iter().filter_map(|arg| match arg {hir::Gen
 ===bug fix===
 Def(_, generic_args) => are_suggestable_generic_args(generic_args),
 ...
-
-===ref===
-https://github.com/rust-lang/rust/issues/68162
-https://github.com/rust-lang/rust/pull/68237
-
-===security===
-no
