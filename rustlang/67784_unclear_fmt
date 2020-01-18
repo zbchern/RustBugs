@@ -15,8 +15,5 @@ post_padding.write(self.buf)?;
 self.fill = old_fill;
 self.align = old_align;
 
-===ref===
-https://github.com/rust-lang/rust/pull/67784
-
 ===security===
 unclear
