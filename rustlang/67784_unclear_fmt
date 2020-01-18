@@ -1,4 +1,4 @@
-===buggy context===
+===bug context===
 match,some
 
 ===buggy code===
@@ -14,6 +14,3 @@ let old_align = crate::mem::replace(&mut self.align, rt::v1::Alignment::Right);
 post_padding.write(self.buf)?;
 self.fill = old_fill;
 self.align = old_align;
-
-===security===
-unclear
