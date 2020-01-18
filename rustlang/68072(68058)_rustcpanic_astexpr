@@ -1,0 +1,5 @@
+===buggy code===
+hir::Expr { hir_id: self.lower_node_id(e.id), kind, span: e.span, attrs: e.attrs.clone() }
+
+===bug fix===
+hir::Expr { hir_id: self.lower_node_id(e.id), kind, span: e.span, attrs: e.attrs.iter().map(|a| self.lower_attr(a)).collect::<Vec<_>>().into(),}
