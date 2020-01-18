@@ -1,0 +1,10 @@
+===bug context===
+match
+
+===buggy code===
+...
+hir::ExprKind::Match(into_future_expr, arena_vec![self; pinned_arm], hir::MatchSource::AwaitDesugar,)
+
+===bug fix===
+let expr = self.lower_expr(expr);
+hir::ExprKind::Match(expr, arena_vec![self; pinned_arm], hir::MatchSource::AwaitDesugar)
