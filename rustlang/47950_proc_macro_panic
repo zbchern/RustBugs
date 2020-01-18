@@ -7,7 +7,7 @@ DotEq => unreachable!(),
 ===bug fix===
 DotEq => joint!('.', Eq),
 
-===link===
+===ref===
 https://github.com/rust-lang/rust/issues/47950
 
 ===security===
