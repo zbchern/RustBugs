@@ -5,7 +5,4 @@ let mut buf = Vec::with_capacity(self.len() * n);
 let mut buf = Vec::with_capacity(self.len().checked_mul(n).expect("capacity overflow"));
 
 ===security===
-yes
-
-===unsafe nested===
-yes
+yes, unsafe nested
