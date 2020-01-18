@@ -8,7 +8,7 @@ Def(_, generic_args) => generic_args.iter().filter_map(|arg| match arg {hir::Gen
 Def(_, generic_args) => are_suggestable_generic_args(generic_args),
 ...
 
-===link===
+===ref===
 https://github.com/rust-lang/rust/issues/68162
 
 ===security===
