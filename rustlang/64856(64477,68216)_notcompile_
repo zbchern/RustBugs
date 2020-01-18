@@ -1,0 +1,8 @@
+===buggy code===
+((::alloc::fmt::format as for<'r> fn(std::fmt::Arguments<'r>) -> std::string::String {std::fmt::format})(((
+...
+
+===bug fix===
+({let res = ((::alloc::fmt::format as for<'r> fn(std::fmt::Arguments<'r>) -> std::string::String {std::fmt::format})(((
+...
+
