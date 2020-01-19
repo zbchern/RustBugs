@@ -1,0 +1,15 @@
+===buggy code===
+if arg.layout.is_aggregate() && (int_regs < needed_int || sse_regs < needed_sse) {
+  cls_or_mem = Err(Memory);
+  ...
+
+===bug fix===
+match (int_regs.checked_sub(needed_int), sse_regs.checked_sub(needed_sse)) {
+  (Some(left_int), Some(left_sse)) => {
+    int_regs = left_int;
+    sse_regs = left_sse;
+  }
+  ...
+  
+===comments===
+rustc_target: avoid negative register counts in the SysV x86_64 ABI. 
