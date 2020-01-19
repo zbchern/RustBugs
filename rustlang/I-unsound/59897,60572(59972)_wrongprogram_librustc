@@ -1,0 +1,14 @@
+===buggy code===
+let name = old_op.layout.ty.ty_adt_def().unwrap().variants[variant_id].ident.name;
+self.visit_elem(new_op, PathElem::Variant(name))
+
+===bug fix===
+let name = match old_op.layout.ty.sty {
+  ty::Adt(adt, _) => PathElem::Variant(adt.variants[variant_id].ident.name),
+  ty::Generator(..) => PathElem::GeneratoreState(variant_id),
+  _ => bug!("Unexpected type with variant: {:?}", old_op.layout.ty),
+};
+self.visit_elem(new_op, name)
+
+===comments===
+The following code crashes with an illegal instruction, presumably because all the code after contains_never is considered unreachable.
