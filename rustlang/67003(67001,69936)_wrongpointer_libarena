@@ -1,0 +1,31 @@
+===buggy code=== 
+let mut iter = iter.into_iter();
+let size_hint = iter.size_hint();
+match size_hint {
+  (min, Some(max)) if min == max => { 
+  let len = min;
+  if len == 0 {
+    return &mut [];
+  }
+  self.ensure_capacity(len);
+  let slice = self.ptr.get();
+    unsafe {...}
+  ...
+  
+===bug fix=== 
+let mut vec: SmallVec<[_; 8]> = iter.into_iter().collect();
+if vec.is_empty() {
+  return &mut [];
+}
+unsafe {...}
+
+===security===
+yes, unsafe inside
+
+===comments===
+Fix TypedArena returning wrong pointers for recursive allocations
+I tried calling TypedArena::alloc_from_iter with an iterator which itself allocates on the arena.
+If that iterator has fixed size (known through size_hint), the allocation goes in the fast path.
+In that case, the allocation for the range and the recursive allocations get interlaced.
+The returned pointers are wrong, and valid objects get overwritten.
+This can lead to undropped objects and infinite loops.
